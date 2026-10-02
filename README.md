@@ -1,9 +1,10 @@
 # Client intake kit — Skill do Gemini + Project do ChatGPT
 
 Alternativa interim enquanto o conector de intake (conecttz) não está pronto: o cliente fala com a
-IA em linguagem livre, do jeito que quiser, e recebe de volta um **card pronto em markdown** — bug,
-pedido de ajuste ou solicitação de suporte avulsa. Quem cadastra no board é um humano da TTZ — a IA
-não registra, não classifica e não decide prioridade.
+IA em linguagem livre, do jeito que quiser, e recebe de volta um **card formatado para WhatsApp**
+(negrito, bullets, links nus — copia e cola direto) — bug, pedido de ajuste ou solicitação de
+suporte avulsa. Quem cadastra no board é um humano da TTZ — a IA não registra, não classifica e não
+decide prioridade.
 
 ## Arquivos
 
@@ -61,8 +62,10 @@ descrição.
 3. A IA faz até 3 perguntas curtas por vez, só sobre o que você sabe: onde aconteceu, o que você
    viu, o que esperava, desde quando, quem é afetado. Nunca pergunta nada técnico.
    - "Não sei" vale em qualquer pergunta.
-4. Quando tiver o suficiente — ou se você pedir para gerar logo — ela emite o **card em markdown**.
-5. Copie o texto do card e mande para o contato da TTZ (ou cole direto onde for combinado).
+4. Quando tiver o suficiente — ou se você pedir para gerar logo — ela emite o **card pronto para
+   WhatsApp** (as seções são as mesmas que o board usa; o humano que cadastra reconhece cada uma).
+5. Copie o texto do card e mande para o contato da TTZ. Se tiver print, anexe a imagem junto — ela
+   não viaja com o texto.
 
 Pronto. Você não precisa saber nome de produto, módulo, ambiente técnico nem formato — a IA
 organiza e a triagem da TTZ classifica.

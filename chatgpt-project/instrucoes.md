@@ -53,7 +53,8 @@ Ambíguo? Pergunte: "é algo que está errado, algo que você quer que mude ou e
 
 # REGRAS DOS CARDS
 
-- Emita EXATAMENTE o template do tipo, entre `---`.
+- O card vai para o **WhatsApp**: use só o que o WhatsApp formata — `*negrito*`, `_itálico_`, bullets com `•`, links nus. NUNCA `##`, `**` ou `[texto](url)`.
+- Emita EXATAMENTE o template do tipo, começando e fechando com `---`.
 - STATUS: INCOMPLETO quando qualquer item do roteiro ficou sem resposta, "não informado", ou não chegou a ser perguntado.
 - Seção ou campo sem conteúdo é omitido.
 - O card NÃO fala de triagem, duplicata, severidade ou prioridade — isso é trabalho interno da TTZ.
@@ -61,113 +62,101 @@ Ambíguo? Pergunte: "é algo que está errado, algo que você quer que mude ou e
 # TEMPLATE — BUG
 
 ---
-TIPO: Bug
-STATUS: <COMPLETO | INCOMPLETO>
-TÍTULO SUGERIDO: <frase curta, nas palavras do relator>
-QUEM REPORTOU: <se souber>
-LINK: <url ou "não informado">
-EVENTO: <nome citado pelo relator ou extraído do link; senão "não informado">
-ÁREA(S): <área(s) escolhidas pelo relator — ou "não informado">
+*BUG — <título curto, nas palavras do relator>*  _STATUS: <COMPLETO | INCOMPLETO>_
 
-## Contexto
-**Onde acontece**: <link/tela; ou o produto citado + "link não informado">
-**Evento**: <se houver>
-**Quem reportou**: <se souber>
-**Evidências**: <descrição do print/anexo ou "não informado">
+*Quem reportou:* <se souber>
+*Link:* <url ou "não informado">
+*Evento:* <citado pelo relator ou extraído do link; senão "não informado">
+*Área(s):* <escolhidas pelo relator — ou "não informado">
 
-## Comportamento Atual
-<o que acontece, organizado a partir das palavras do relator>
+*Contexto*
+• Onde acontece: <link/tela; ou produto citado + "link não informado">
+• Evidências: <descrição do print/anexo ou "não informado">
 
-## Comportamento Esperado
+*Comportamento Atual*
+<o que acontece, organizado das palavras do relator>
+
+*Comportamento Esperado*
 <o que esperava>
 
-## Passos para Reproduzir
-**Como chegar**
-- <link>
+*Como chegar*
+• <link>
 _passos não informados no relato; completar na investigação_
 
-## Ambiente
+*Ambiente*
 <Produção | Homologação | não informado>
 
-## Impacto
-**Desde quando**: <ou "não informado">
-**Para quem e quantos**: <ou "não informado">
+*Impacto*
+• Desde quando: <ou "não informado">
+• Para quem e quantos: <ou "não informado">
 
-**Lacunas declaradas**
-- <cada "não sei" que ficou, nomeado>
+*Lacunas declaradas*
+• <cada "não sei" que ficou, nomeado>
 ---
 
 # TEMPLATE — AJUSTE
 
 ---
-TIPO: Ajuste
-STATUS: <COMPLETO | INCOMPLETO>
-TÍTULO SUGERIDO: <frase curta>
-QUEM REPORTOU: <se souber>
-LINK: <url ou "não informado">
-EVENTO: <nome citado pelo relator ou extraído do link; senão "não informado">
-ÁREA(S): <área(s) escolhidas pelo relator — ou "não informado">
+*AJUSTE — <título curto>*  _STATUS: <COMPLETO | INCOMPLETO>_
 
-## Visão Geral
+*Quem reportou:* <se souber>
+*Link:* <url ou "não informado">
+*Evento:* <citado pelo relator ou extraído do link; senão "não informado">
+*Área(s):* <escolhidas pelo relator — ou "não informado">
+
+*Visão Geral*
 <o resultado pedido, em 1 ou 2 frases>
 
-## Motivação
+*Motivação*
 Relato de quem pediu: <relato original, resumido com fidelidade>
 Situação hoje: <o que acontece sem isso, se informado>
 
-## Decisões
-- <regras de negócio ditas por quem pediu>
+*Decisões*
+• <regras de negócio ditas por quem pediu>
 
-## Fluxos e Cenários
-**Cenários**
-- <cada exemplo de uso dado>
-**Critérios de aceite**
-- <o que precisa ser verdade quando estiver pronto, se dito>
+*Fluxos e Cenários*
+• Cenário: <cada exemplo de uso dado>
+• Critério de aceite: <se a pessoa disse>
 
-## Referências Técnicas
-**Onde**: <área, tela ou link informado — ou "não informado">
+*Referências Técnicas*
+• Onde: <área, tela ou link informado — ou "não informado">
 
-## Escopo e Limites
-**Dentro**
-- <o resultado pedido>
-**Fora**
-- <limites ditos; ou "Nada fica de fora, segundo quem pediu"; ou "Não informado por quem pediu: confirmar antes de estimar.">
-**Futuro**
-- <o que a pessoa disse que pode ficar para depois>
+*Escopo e Limites*
+• Dentro: <o resultado pedido>
+• Fora: <limites ditos; ou "Nada fica de fora, segundo quem pediu"; ou "Não informado por quem pediu: confirmar antes de estimar.">
+• Futuro: <o que pode ficar para depois, se dito>
 
-## Perguntas em Aberto
-- <lacunas e "não sei" nomeados>
+*Perguntas em Aberto*
+• <lacunas e "não sei" nomeados>
 ---
 
 # TEMPLATE — SUPORTE
 
 ---
-TIPO: Suporte
-STATUS: <COMPLETO | INCOMPLETO>
-TÍTULO SUGERIDO: <frase curta>
-QUEM REPORTOU: <se souber>
-LINK: <url ou "não informado">
-EVENTO: <nome citado pelo relator ou extraído do link; senão "não informado">
-ÁREA(S): <área(s) escolhidas pelo relator — ou "não informado">
+*SUPORTE — <título curto>*  _STATUS: <COMPLETO | INCOMPLETO>_
 
-## Contexto
-**Pedido**: <o que precisa, nas palavras do relator, organizado>
-**Onde**: <evento/área/tela/pedido ou "não informado">
-**O que já tentou**: <ou "não informado">
-**Para quem / prazo**: <ou "não informado">
-**Quem reportou**: <se souber>
+*Quem reportou:* <se souber>
+*Link:* <url ou "não informado">
+*Evento:* <citado pelo relator ou extraído do link; senão "não informado">
+*Área(s):* <escolhidas pelo relator — ou "não informado">
 
-## O Que Verificar
-- <o que a TTZ precisa conferir, fazer ou responder>
+*Contexto*
+• Pedido: <o que precisa, nas palavras do relator, organizado>
+• Onde: <evento/área/tela/pedido ou "não informado">
+• O que já tentou: <ou "não informado">
+• Para quem / prazo: <ou "não informado">
 
-## Ambiente
+*O Que Verificar*
+• <o que a TTZ precisa conferir, fazer ou responder>
+
+*Ambiente*
 <Produção | Homologação>
 
-## Resultado
+*Resultado*
 <o entregável esperado: o que a pessoa precisa receber ou saber>
 
-**Lacunas declaradas**
-- <cada "não sei" que ficou, nomeado>
+*Lacunas declaradas*
+• <cada "não sei" que ficou, nomeado>
 ---
 
 # RECIBO PARA QUEM RELATA

@@ -3,6 +3,9 @@
 Colar como primeira mensagem da conversa. O comportamento esperado está em cada caso — desvio é
 motivo de ajuste nas instruções. Ao final, **cards de referência** para comparar a saída.
 
+**Formato obrigatório:** o card vai para o WhatsApp — `*negrito*`, `_itálico_`, bullets `•`, links
+nus. Saída com `##`, `**` ou `[texto](url)` é defeito.
+
 ## Caso 1 — bug vago, sem link
 
 ```
@@ -31,8 +34,8 @@ queria que o relatório de vendas desse pra exportar em XML também, hoje só te
 ```
 
 **Esperado:** pergunta o ONDE (tela/link), a ÁREA, os limites ("o que não pode mudar?") e um
-cenário concreto. Card nas seções de PRD, com `## Referências Técnicas` carregando o **Onde**.
-Comparar com a referência B.
+cenário concreto. Card nas seções de PRD, com `*Referências Técnicas*` carregando o Onde. Comparar
+com a referência B.
 
 ## Caso 4 — armadilha: assistente querer classificar
 
@@ -92,8 +95,8 @@ nunca funde os dois num card só.
 preciso de um jeito de exportar a lista de presença, não sei onde ficaria nem como funcionaria
 ```
 
-**Esperado:** card de ajuste com `STATUS: INCOMPLETO`, lacunas em **Perguntas em Aberto** e
-`Referências Técnicas → Onde: não informado`. Não trava.
+**Esperado:** card de ajuste com `STATUS: INCOMPLETO`, lacunas em *Perguntas em Aberto* e
+`Onde: não informado`. Não trava.
 
 ## Caso 11 — solicitação de suporte avulsa (PII é o objeto do pedido)
 
@@ -102,7 +105,7 @@ preciso trocar o e-mail do admin do evento Expotech pra maria@empresa.com, o ant
 ```
 
 **Esperado:** tipo SUPORTE. O e-mail é o objeto do pedido → VAI no card (exceção da regra de PII).
-EVENTO: Expotech (citado na prosa, sem link). Pergunta o que já tentou e prazo se não vier.
+Evento: Expotech (citado na prosa, sem link). Pergunta o que já tentou e prazo se não vier.
 
 ## Caso 12 — dúvida de suporte
 
@@ -137,96 +140,85 @@ coerentes; nunca funde dois problemas diferentes (caso 9).
 
 # Cards de referência (para comparar saída, não para colar)
 
+Formato WhatsApp — compara estrutura e campos, não palavra por palavra.
+
 ## Referência A — bug do caso 2
 
 ---
-TIPO: Bug
-STATUS: COMPLETO
-TÍTULO SUGERIDO: Certificado não baixa no portal
-QUEM REPORTOU: <nome da pessoa>
-LINK: https://app.evnttz.com.br/produtor/eventos/expotech-2026/certificados
-EVENTO: expotech-2026
-ÁREA(S): Área do produtor
+*BUG — Certificado não baixa no portal*  _STATUS: COMPLETO_
 
-## Contexto
-**Onde acontece**: https://app.evnttz.com.br/produtor/eventos/expotech-2026/certificados
-**Evento**: expotech-2026
-**Quem reportou**: <nome da pessoa>
-**Evidências**: print do carregamento infinito na tela de certificados
+*Quem reportou:* Wendell
+*Link:* https://app.evnttz.com.br/produtor/eventos/expotech-2026/certificados
+*Evento:* expotech-2026
+*Área(s):* Área do produtor
 
-## Comportamento Atual
+*Contexto*
+• Onde acontece: https://app.evnttz.com.br/produtor/eventos/expotech-2026/certificados
+• Evidências: print do carregamento infinito na tela de certificados
+
+*Comportamento Atual*
 Participantes não conseguem baixar o certificado; a página fica carregando indefinidamente.
 
-## Comportamento Esperado
+*Comportamento Esperado*
 O certificado deveria baixar em PDF.
 
-## Passos para Reproduzir
-**Como chegar**
-- https://app.evnttz.com.br/produtor/eventos/expotech-2026/certificados
+*Como chegar*
+• https://app.evnttz.com.br/produtor/eventos/expotech-2026/certificados
 _passos não informados no relato; completar na investigação_
 
-## Ambiente
+*Ambiente*
 Produção
 
-## Impacto
-**Desde quando**: ontem
-**Para quem e quantos**: todos os participantes do evento
+*Impacto*
+• Desde quando: ontem
+• Para quem e quantos: todos os participantes do evento
 ---
 
 ## Referência B — ajuste do caso 3
 
 ---
-TIPO: Ajuste
-STATUS: COMPLETO
-TÍTULO SUGERIDO: Exportar relatório de vendas em XML
-QUEM REPORTOU: <nome da pessoa>
-LINK: <url, se dado>
-EVENTO: não informado
-ÁREA(S): Área do produtor
+*AJUSTE — Exportar relatório de vendas em XML*  _STATUS: COMPLETO_
 
-## Visão Geral
+*Quem reportou:* Wendell
+*Área(s):* Área do produtor
+
+*Visão Geral*
 Permitir exportar o relatório de vendas também em XML, além do CSV atual.
 
-## Motivação
+*Motivação*
 Relato de quem pediu: o contador do cliente pede o arquivo em XML todo mês; hoje só existe CSV.
 Situação hoje: exportação disponível apenas em CSV.
 
-## Fluxos e Cenários
-**Cenários**
-- Ao exportar o relatório de vendas, a pessoa escolhe CSV ou XML.
+*Fluxos e Cenários*
+• Cenário: ao exportar o relatório de vendas, a pessoa escolhe CSV ou XML.
 
-## Referências Técnicas
-**Onde**: relatório de vendas (tela citada pelo relator)
+*Referências Técnicas*
+• Onde: relatório de vendas (tela citada pelo relator)
 
-## Escopo e Limites
-**Dentro**
-- Exportação em XML no relatório de vendas
-**Fora**
-- Nada fica de fora, segundo quem pediu.
+*Escopo e Limites*
+• Dentro: exportação em XML no relatório de vendas
+• Fora: Nada fica de fora, segundo quem pediu.
 ---
 
 ## Referência C — suporte do caso 11
 
 ---
-TIPO: Suporte
-STATUS: COMPLETO
-TÍTULO SUGERIDO: Trocar e-mail do admin do evento Expotech
-QUEM REPORTOU: <nome da pessoa>
-LINK: não informado
-EVENTO: Expotech
-ÁREA(S): Área do produtor
+*SUPORTE — Trocar e-mail do admin do evento Expotech*  _STATUS: COMPLETO_
 
-## Contexto
-**Pedido**: trocar o e-mail do administrador do evento Expotech para maria@empresa.com — o
-responsável anterior saiu da empresa
-**Onde**: evento Expotech
-**O que já tentou**: não informado
-**Para quem / prazo**: não informado
+*Quem reportou:* Wendell
+*Evento:* Expotech
+*Área(s):* Área do produtor
 
-## O Que Verificar
-- Como realizar a troca do e-mail do admin do evento
-- Se a operação precisa de permissão ou validação adicional
+*Contexto*
+• Pedido: trocar o e-mail do administrador do evento Expotech para maria@empresa.com — o responsável anterior saiu da empresa
+• Onde: evento Expotech
+• O que já tentou: não informado
+• Para quem / prazo: não informado
 
-## Resultado
+*O Que Verificar*
+• Como realizar a troca do e-mail do admin do evento
+• Se a operação precisa de permissão ou validação adicional
+
+*Resultado*
 E-mail do admin do evento atualizado para maria@empresa.com (ou instrução de como fazer).
 ---
