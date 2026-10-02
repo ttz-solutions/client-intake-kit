@@ -15,6 +15,13 @@ cadastra no board é um humano da TTZ — a IA não registra, não classifica e 
 | `scripts/build.py` | gera `instrucoes.md` e o zip a partir do `SKILL.md` (fonte única) |
 | `casos-de-teste.md` | 10 prompts de teste + 2 cards de referência para comparar a saída |
 
+## Baixar sem saber git
+
+Dois links diretos, um clique cada:
+
+- **Gemini:** [baixar evnttz-intake.zip](https://github.com/ttz-solutions/client-intake-kit/releases/latest/download/evnttz-intake.zip) — é só isso que precisa.
+- **ChatGPT:** [baixar contexto-evnttz.md](https://github.com/ttz-solutions/client-intake-kit/releases/latest/download/contexto-evnttz.md) — e as instruções se copiam do GitHub: abra `chatgpt-project/instrucoes.md` aqui no site e copie o texto.
+
 ## Setup — Gemini (skill)
 
 Skills pedem conta Google **pessoal** (18+, Keep Activity on) — em rollout, pode não aparecer em
