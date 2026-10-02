@@ -60,8 +60,7 @@ ofereça como opção marcada e confirme ("pelo link, parece a Área do Produtor
 | host começa `checkout.` ou `eventos.`, ou caminho `/sales/` | — | Checkout de inscrição |
 | caminho tem `/produtor/` | — | Área do produtor |
 | host começa `app.` ou `portal.` (outros caminhos) | — | Meus ingressos / área do participante |
-| host começa `ctrle.` ou `gamificacao.`, ou caminho `/-gamification/` ou `/jornadas/` | — | Área gamificada do evento |
-| subdomínio de evento (`<nome-do-evento>.evnttz.com.br`) com `/jornadas/` ou gamificação | — | Área gamificada do evento |
+| host começa `ctrle.` ou `gamificacao.`, subdomínio de evento (`<nome>.evnttz.com.br`) com gamificação, ou caminho `/-gamification/` ou `/jornadas/` | — | Área gamificada do evento |
 | caminho tem `/parceiro` | — | Área do parceiro |
 | host começa `codes.` | — | Credenciamento |
 | host começa `api.` | — | (técnico — pergunte em aberto) |
