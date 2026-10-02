@@ -29,6 +29,17 @@ Outros endereços citados em chamados: `credenciamento`, `gorn`.
 
 Links como `/produtor/eventos/<nome-do-evento>/` ou `/evento/<nome-do-evento>/` trazem o nome do evento na URL — extraia para o campo Evento do card.
 
+## Áreas do produto (oferecer como opções na pergunta — nunca afirmar)
+
+- **Área do produtor** — portal onde o organizador gerencia o evento (`/produtor/...`)
+- **Área gamificada do evento** — jornadas, quests, lojinha, prêmios do participante
+- **Área do parceiro** — patrocinador/expositor
+- **Meus ingressos / área do participante** — inscrições e ingressos de quem participa
+- **Checkout de inscrição** — compra/inscrição (`checkout.`, `eventos.`)
+- **Credenciamento** — check-in no dia do evento
+- **Site do evento** — página pública/landing
+- **Mini Checkout** — checkout simplificado
+
 ## Módulos (o nome que as pessoas usam)
 
 Credenciamento (check-in), Checkout, Quests, Quizzes, Missões, Jornadas, Prêmios, Lojinha, Pedidos, Ingressos, Participantes, Relatórios, Usuários, Networking, Matchmaking, Feed social, Agenda inteligente, Construtor de navegação, Produtos digitais, Gestão de eventos, Gestão da gamificação, Gestão da lojinha, Clientes de produtos digitais.
