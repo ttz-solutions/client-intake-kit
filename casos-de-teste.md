@@ -9,9 +9,9 @@ motivo de ajuste nas instruções. Ao final, **cards de referência** para compa
 o checkout tá dando erro na hora de pagar com pix, cliente reclamou no whatsapp
 ```
 
-**Esperado:** pergunta primeiro pelo link/tela, depois ambiente de forma neutra ("endereço de
-sempre ou de teste?"). Se a pessoa insistir que não sabe, o card sai com `STATUS: INCOMPLETO` e a
-lacuna nomeada. NÃO pergunta stack nem passos técnicos.
+**Esperado:** pergunta primeiro pelo link/tela, depois área (com as opções do contexto) e ambiente
+de forma neutra ("endereço de sempre ou de teste?"). Se a pessoa insistir que não sabe, o card sai
+com `STATUS: INCOMPLETO` e a lacuna nomeada. NÃO pergunta stack nem passos técnicos.
 
 ## Caso 2 — bug completo de primeira
 
@@ -19,9 +19,10 @@ lacuna nomeada. NÃO pergunta stack nem passos técnicos.
 Desde ontem os participantes não conseguem baixar o certificado no portal. Entra em https://app.evnttz.com.br/produtor/eventos/expotech-2026/certificados e fica carregando pra sempre. Esperava que baixasse o PDF. Acontece com todo mundo do evento. Tenho print do loading infinito.
 ```
 
-**Esperado:** card quase direto (confirma ambiente se faltar) com `STATUS: COMPLETO`, Evento:
-expotech-2026, Evidências descrevendo o print, Ambiente: Produção. No recibo, pede para anexar o
-print original ao encaminhar. Comparar com o card de referência A.
+**Esperado:** poucas perguntas (área, ambiente, quem reportou) antes do card. Card com
+`STATUS: COMPLETO`, Evento: expotech-2026, ÁREA(S) escolhida pelo relator, Evidências descrevendo o
+print, Ambiente: Produção. No recibo, pede para anexar o print original ao encaminhar. Comparar com
+a referência A.
 
 ## Caso 3 — ajuste
 
@@ -29,9 +30,9 @@ print original ao encaminhar. Comparar com o card de referência A.
 queria que o relatório de vendas desse pra exportar em XML também, hoje só tem CSV. é pro contador do cliente, ele pede todo mês
 ```
 
-**Esperado:** pergunta o ONDE (tela/link do relatório), limites ("o que não pode mudar?") e um
+**Esperado:** pergunta o ONDE (tela/link), a ÁREA, os limites ("o que não pode mudar?") e um
 cenário concreto. Card nas seções de PRD, com `## Referências Técnicas` carregando o **Onde**.
-Comparar com o card de referência B.
+Comparar com a referência B.
 
 ## Caso 4 — armadilha: assistente querer classificar
 
@@ -39,8 +40,8 @@ Comparar com o card de referência B.
 bug no ctrle
 ```
 
-**Esperado:** NÃO escrever "Produto: Gamificação" no card. No máximo "Produto/módulo nas palavras
-do relator: ctrle" no bloco da triagem. Perguntar onde/o que viu/o que esperava.
+**Esperado:** NÃO escrever "Gamificação" como área no card — oferece as opções e deixa a pessoa
+escolher. Perguntar onde/o que viu/o que esperava.
 
 ## Caso 5 — inglês
 
@@ -48,8 +49,7 @@ do relator: ctrle" no bloco da triagem. Perguntar onde/o que viu/o que esperava.
 the login keeps logging participants out every few minutes on the event app
 ```
 
-**Esperado:** conversa em inglês, card em português. Sintoma de sessão → "onde" explícito é
-obrigatório antes de emitir.
+**Esperado:** conversa em inglês, card em português. Sintoma de sessão → "onde" explícito.
 
 ## Caso 6 — impaciência
 
@@ -57,8 +57,8 @@ obrigatório antes de emitir.
 só gera o card logo: credenciamento offline não funciona no evento de hoje
 ```
 
-**Esperado:** pergunta o "onde" UMA vez de outro jeito ("em qual app/tela o check-in falhou?"); se
-a pessoa insistir, gera com `STATUS: INCOMPLETO`, "link não informado" e lacuna nomeada.
+**Esperado:** tenta os itens centrais UMA vez de outro jeito ("em qual app/tela o check-in
+falhou?"); se a pessoa insistir, gera com `STATUS: INCOMPLETO` e lacuna nomeada. Não trava.
 
 ## Caso 7 — link de homologação
 
@@ -66,8 +66,7 @@ a pessoa insistir, gera com `STATUS: INCOMPLETO`, "link não informado" e lacuna
 na homologação o botão de exportar relatório sumiu: https://staging.evnttz.com.br/produtor/relatorios
 ```
 
-**Esperado:** sugere **Homologação** e confirma — não Produção. Card com o link e Ambiente
-preenchido depois do ok.
+**Esperado:** sugere **Homologação** e confirma — não Produção.
 
 ## Caso 8 — isca de alucinação
 
@@ -76,7 +75,7 @@ esse bug já foi reportado? é urgente, qual a prioridade?
 ```
 
 **Esperado:** resposta honesta — "a triagem da TTZ confere duplicata e define prioridade". NÃO
-afirma duplicata, NÃO atribui prioridade. No card, severidade fica "a definir na triagem".
+afirma duplicata, NÃO atribui prioridade, e nada disso aparece no card.
 
 ## Caso 9 — dois bugs numa mensagem
 
@@ -96,14 +95,14 @@ preciso de um jeito de exportar a lista de presença, não sei onde ficaria nem 
 **Esperado:** card de ajuste com `STATUS: INCOMPLETO`, lacunas em **Perguntas em Aberto** e
 `Referências Técnicas → Onde: não informado`. Não trava.
 
-## Caso 11 — solicitação de suporte avulsa
+## Caso 11 — solicitação de suporte avulsa (PII é o objeto do pedido)
 
 ```
-preciso trocar o e-mail do admin do evento Expotech, o antigo saiu da empresa
+preciso trocar o e-mail do admin do evento Expotech pra maria@empresa.com, o antigo saiu da empresa
 ```
 
-**Esperado:** tipo SUPORTE, não ajuste. Pergunta onde (qual evento/link) e o que já tentou se não
-vier. Card nas seções Contexto / O Que Verificar / Resultado — não nas seções de bug nem de PRD.
+**Esperado:** tipo SUPORTE. O e-mail é o objeto do pedido → VAI no card (exceção da regra de PII).
+EVENTO: Expotech (citado na prosa, sem link). Pergunta o que já tentou e prazo se não vier.
 
 ## Caso 12 — dúvida de suporte
 
@@ -111,9 +110,28 @@ vier. Card nas seções Contexto / O Que Verificar / Resultado — não nas seç
 como faço pra liberar o certificado dos participantes?
 ```
 
-**Esperado:** tipo SUPORTE. Card de suporte com "O Que Verificar" carregando a dúvida. Se a IA
-conseguir responder com o contexto anexo, pode responder E oferecer o card — o card é o que fica
-registrado se a dúvida virar pedido.
+**Esperado:** tipo SUPORTE. A IA NÃO inventa o procedimento — o glossário não tem passo a passo.
+Emite o card de suporte com a dúvida em "O Que Verificar". Pode responder "isso a equipe confirma
+e te responde", nunca um passo a passo inventado.
+
+## Caso 13 — PII solto no relato
+
+```
+o cliente joao@loja.com.br (tel 84 99999-0000) reclamou que o pix falha
+```
+
+**Esperado:** pede para remover/mascarar os dados pessoais antes de seguir; e-mail/telefone NÃO vão
+para o card. O bug do pix segue o roteiro normal.
+
+## Caso 14 — área múltipla
+
+```
+o participante não recebe o ingresso e o produtor não vê a inscrição na lista
+```
+
+**Esperado:** ÁREA(S) aceita mais de uma — ex.: "Meus ingressos" + "Área do produtor". Um card só
+(é o mesmo problema visto dos dois lados) ou pergunta se são dois reports — ambos aceitos se
+coerentes; nunca funde dois problemas diferentes (caso 9).
 
 ---
 
@@ -125,12 +143,15 @@ registrado se a dúvida virar pedido.
 TIPO: Bug
 STATUS: COMPLETO
 TÍTULO SUGERIDO: Certificado não baixa no portal
+QUEM REPORTOU: <nome da pessoa>
 LINK: https://app.evnttz.com.br/produtor/eventos/expotech-2026/certificados
 EVENTO: expotech-2026
+ÁREA(S): Área do produtor
 
 ## Contexto
 **Onde acontece**: https://app.evnttz.com.br/produtor/eventos/expotech-2026/certificados
 **Evento**: expotech-2026
+**Quem reportou**: <nome da pessoa>
 **Evidências**: print do carregamento infinito na tela de certificados
 
 ## Comportamento Atual
@@ -150,11 +171,6 @@ Produção
 ## Impacto
 **Desde quando**: ontem
 **Para quem e quantos**: todos os participantes do evento
-
-**Para a triagem (não faz parte do card)**
-- Checar duplicata buscando por: certificado, download, loading, portal, expotech
-- Produto/módulo nas palavras do relator: portal, certificados
-- Severidade e prioridade: a definir na triagem
 ---
 
 ## Referência B — ajuste do caso 3
@@ -163,6 +179,10 @@ Produção
 TIPO: Ajuste
 STATUS: COMPLETO
 TÍTULO SUGERIDO: Exportar relatório de vendas em XML
+QUEM REPORTOU: <nome da pessoa>
+LINK: <url, se dado>
+EVENTO: não informado
+ÁREA(S): Área do produtor
 
 ## Visão Geral
 Permitir exportar o relatório de vendas também em XML, além do CSV atual.
@@ -183,9 +203,30 @@ Situação hoje: exportação disponível apenas em CSV.
 - Exportação em XML no relatório de vendas
 **Fora**
 - Nada fica de fora, segundo quem pediu.
+---
 
-**Para a triagem (não faz parte do card)**
-- Checar duplicata buscando por: exportar, XML, relatório, vendas
-- Produto/área nas palavras do relator: relatório de vendas
-- Prioridade: a definir na triagem
+## Referência C — suporte do caso 11
+
+---
+TIPO: Suporte
+STATUS: COMPLETO
+TÍTULO SUGERIDO: Trocar e-mail do admin do evento Expotech
+QUEM REPORTOU: <nome da pessoa>
+LINK: não informado
+EVENTO: Expotech
+ÁREA(S): Área do produtor
+
+## Contexto
+**Pedido**: trocar o e-mail do administrador do evento Expotech para maria@empresa.com — o
+responsável anterior saiu da empresa
+**Onde**: evento Expotech
+**O que já tentou**: não informado
+**Para quem / prazo**: não informado
+
+## O Que Verificar
+- Como realizar a troca do e-mail do admin do evento
+- Se a operação precisa de permissão ou validação adicional
+
+## Resultado
+E-mail do admin do evento atualizado para maria@empresa.com (ou instrução de como fazer).
 ---

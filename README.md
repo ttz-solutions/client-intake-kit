@@ -38,7 +38,7 @@ conta de trabalho ainda. Dois caminhos:
 
 1. **Create manually**.
 2. Nome: `evnttz-intake` (slug, minúsculas com hífen).
-3. Descrição: `Reportar bug ou pedir ajuste no EVNTTZ — entrevista breve e emite card pronto em markdown.`
+3. Descrição: `Reportar bug, pedir ajuste ou solicitar suporte no EVNTTZ — entrevista breve e emite card pronto em markdown.`
 4. Instruções: cole o corpo do `SKILL.md` (tudo abaixo do frontmatter `---`). A seção CONTEXTO
    ANEXO é condicional ("se houver arquivo"), então funciona sem o anexo — mas a skill fica sem o
    vocabulário.
@@ -74,8 +74,8 @@ organiza e a triagem da TTZ classifica.
    cadastra assim ou devolve ao relator.
 3. Se o card cita evidência (print, anexo), **confira se o arquivo original veio junto** — a imagem
    fica no chat da IA e não viaja com o texto. Peça ao relator se faltar.
-4. Lê o bloco **Para a triagem**: busca duplicata pelas palavras-chave sugeridas, define produto,
-   severidade e sprint.
+4. Tria por dentro: o card não fala de duplicata, produto ou prioridade — isso é seu: busque
+   duplicata, defina produto/severidade/sprint.
 5. Cola o corpo no card (Boardz/ClickUp). As seções são as mesmas que o `support_file` do conecttz
    produz — quando o conector estiver pronto, a migração é trocar "colar no board" por "colar na
    conversa do Claude App".

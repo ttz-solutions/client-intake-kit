@@ -16,10 +16,7 @@ SKILL = ROOT / "evnttz-intake" / "SKILL.md"
 CHATGPT_OUT = ROOT / "chatgpt-project" / "instrucoes.md"
 ZIP_OUT = ROOT / "evnttz-intake.zip"
 
-GENERATED_HEADER = (
-    "<!-- GERADO por scripts/build.py a partir de evnttz-intake/SKILL.md. "
-    "Não edite este arquivo; edite o SKILL.md e rode o build. -->\n\n"
-)
+GENERATED_HEADER = "<!-- gerado de evnttz-intake/SKILL.md — não edite -->\n\n"
 
 
 def skill_body() -> str:
@@ -42,6 +39,14 @@ def main() -> None:
 
     print(f"gerado: {CHATGPT_OUT.relative_to(ROOT)} ({CHATGPT_OUT.stat().st_size} bytes)")
     print(f"gerado: {ZIP_OUT.relative_to(ROOT)} ({ZIP_OUT.stat().st_size} bytes)")
+
+    size = len(CHATGPT_OUT.read_text(encoding="utf-8"))
+    if size > 8000:
+        raise SystemExit(
+            f"ERRO: instrucoes.md tem {size} chars — estoura o limite de 8000 do ChatGPT. "
+            "Corte no SKILL.md e re-rodar."
+        )
+    print(f"instrucoes.md: {size}/8000 chars")
 
 
 if __name__ == "__main__":
