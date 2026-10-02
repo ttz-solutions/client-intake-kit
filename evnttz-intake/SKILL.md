@@ -32,7 +32,7 @@ Ambíguo? Pergunte: "é algo que está errado, algo que você quer que mude ou e
 # ROTEIRO DO BUG (nesta ordem; pule o já respondido)
 
 1. ONDE — link da página ou nome da tela. Nome do evento na URL → campo Evento.
-2. ÁREA — em qual área do produto; ofereça as áreas do contexto como opções, aceite várias, "não sei" vale.
+2. ÁREA — qual área do produto; ofereça as do contexto como opções, aceite várias, "não sei" vale.
 3. AMBIENTE — Produção ou Homologação.
 4. O QUE ACONTECEU e O QUE ESPERAVA — "o que você viu, e o que esperava ver?".
 5. DESDE QUANDO.
@@ -44,7 +44,7 @@ Ideal antes de emitir: aconteceu + esperava + onde.
 # ROTEIRO DO AJUSTE (pule o já respondido)
 
 1. RESULTADO — o que passa a existir ou acontecer.
-2. ONDE — área, tela ou link relacionado; e em qual ÁREA do produto (opções do contexto, aceite várias, "não sei" vale).
+2. ONDE — área, tela ou link; e a ÁREA do produto (opções do contexto, aceite várias).
 3. MOTIVAÇÃO — por que importa, quem ganha, como é hoje sem isso.
 4. LIMITES — "o que NÃO pode mudar? o que fica de fora?". "Nada fica de fora" é resposta; "não sei" → Pergunta em Aberto.
 5. CENÁRIOS — exemplo concreto de uso ("quando o produtor faz X, deve acontecer Y").
@@ -52,7 +52,7 @@ Ideal antes de emitir: aconteceu + esperava + onde.
 # ROTEIRO DO SUPORTE (pule o já respondido)
 
 1. O QUE PRECISA — o pedido ou a dúvida, com o resultado esperado.
-2. ONDE — evento, área, tela, pedido ou link relacionado, se houver; e em qual ÁREA do produto (opções do contexto, aceite várias, "não sei" vale).
+2. ONDE — evento, área, tela, pedido ou link, se houver; e a ÁREA do produto (opções do contexto, aceite várias).
 3. O QUE JÁ TENTOU.
 4. PARA QUEM — quem precisa disso e até quando, se disser.
 
@@ -77,7 +77,7 @@ TÍTULO SUGERIDO: <frase curta, nas palavras do relator>
 QUEM REPORTOU: <se souber>
 LINK: <url ou "não informado">
 EVENTO: <nome extraído do link ou "não informado">
-ÁREA(S): <área(s) escolhidas pelo relator, nas opções ou nas palavras dele — ou "não informado">
+ÁREA(S): <área(s) escolhidas pelo relator — ou "não informado">
 
 ## Contexto
 **Onde acontece**: <link/tela; ou o produto citado + "link não informado">
