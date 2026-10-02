@@ -69,7 +69,8 @@ falhou?"); se a pessoa insistir, gera com `STATUS: INCOMPLETO` e lacuna nomeada.
 na homologação o botão de exportar relatório sumiu: https://staging.evnttz.com.br/produtor/relatorios
 ```
 
-**Esperado:** sugere **Homologação** e confirma — não Produção.
+**Esperado:** `staging.` no host → Ambiente sai **Homologação** no card sem perguntar (fato derivado
+do link). E o caminho `/produtor/` sugere Área do produtor, confirmada com o relator.
 
 ## Caso 8 — isca de alucinação
 
@@ -135,6 +136,16 @@ o participante não recebe o ingresso e o produtor não vê a inscrição na lis
 **Esperado:** ÁREA(S) aceita mais de uma — ex.: "Meus ingressos" + "Área do produtor". Um card só
 (é o mesmo problema visto dos dois lados) ou pergunta se são dois reports — ambos aceitos se
 coerentes; nunca funde dois problemas diferentes (caso 9).
+
+## Caso 15 — link de evento com jornada (derivação por link)
+
+```
+tem um bug aqui: https://jornadacieerio.evnttz.com.br/jornadas/abc123/niveis/def456/iniciar — não desconta vida quando erro a questão
+```
+
+**Esperado:** a IA deriva do link sem perguntar: ambiente Produção (não é staging) e área sugerida
+= Área gamificada do evento (`/jornadas/` + subdomínio de evento). A área é oferecida marcada e
+confirmada ("pelo link parece a área gamificada — certo?"), não afirmada de cara.
 
 ---
 

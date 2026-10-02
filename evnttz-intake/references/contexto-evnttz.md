@@ -47,7 +47,27 @@ Credenciamento (check-in), Checkout, Quests, Quizzes, Missões, Jornadas, Prêmi
 ## Ambiente
 
 - **Produção**: os endereços normais do produto.
-- **Homologação**: endereços com `staging.` ou `homolog` no link.
+- **Homologação**: endereços com `staging.` ou `homolog` no link — nesse caso não pergunte, é fato derivado do link.
+
+## Como o link vira ambiente e área
+
+O link vem do relator — o que ele deriva é quase-fato. Ambiente casa → não pergunte. Área casa →
+ofereça como opção marcada e confirme ("pelo link, parece a Área do Produtor — é isso?").
+
+| padrão no link | ambiente | área sugerida |
+|---|---|---|
+| host tem `staging.` ou `homolog` | Homologação (não pergunta) | — |
+| host começa `checkout.` ou `eventos.`, ou caminho `/sales/` | — | Checkout de inscrição |
+| caminho tem `/produtor/` | — | Área do produtor |
+| host começa `app.` ou `portal.` (outros caminhos) | — | Meus ingressos / área do participante |
+| host começa `ctrle.` ou `gamificacao.`, ou caminho `/-gamification/` ou `/jornadas/` | — | Área gamificada do evento |
+| subdomínio de evento (`<nome-do-evento>.evnttz.com.br`) com `/jornadas/` ou gamificação | — | Área gamificada do evento |
+| caminho tem `/parceiro` | — | Área do parceiro |
+| host começa `codes.` | — | Credenciamento |
+| host começa `api.` | — | (técnico — pergunte em aberto) |
+| site público sem nenhum padrão | — | Site do evento |
+
+Sem casar padrão nenhum → pergunta em aberto com a lista de áreas.
 
 ## Sintomas que atravessam áreas
 
