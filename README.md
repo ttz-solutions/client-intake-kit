@@ -1,4 +1,4 @@
-# Client intake kit — Gem do Gemini + Project do ChatGPT
+# Client intake kit — Skill do Gemini + Project do ChatGPT
 
 Alternativa interim enquanto o conector de intake (conecttz) não está pronto: o cliente fala com a
 IA em linguagem livre, do jeito que quiser, e recebe de volta um **card pronto em markdown**. Quem
@@ -8,28 +8,42 @@ cadastra no board é um humano da TTZ — a IA não registra, não classifica e 
 
 | arquivo | uso |
 |---|---|
-| `instrucoes.md` | campo de instruções (mesmo texto nos dois) — ~6.200 chars, dentro do limite de 8.000 do ChatGPT |
-| `contexto-evnttz.md` | anexar como knowledge do Gem / file do Project — vocabulário real do produto |
-| `casos-de-teste.md` | 6 prompts de teste com comportamento esperado, para validar depois de montar |
+| `evnttz-intake/SKILL.md` | a skill: frontmatter (`name` slug + `description`) + instruções — fonte única |
+| `evnttz-intake/references/contexto-evnttz.md` | vocabulário real do produto, carregado pela skill quando precisa |
+| `evnttz-intake.zip` | pacote pronto pra upload no Gemini (SKILL.md + references) |
+| `casos-de-teste.md` | 6 prompts de teste com comportamento esperado |
 
-## Setup — Gemini (Gem)
+## Setup — Gemini (skill)
 
-1. Abra o Gemini → **Gems** → **New Gem**.
-2. Nome: `EVNTTZ — Reportar bug/ajuste`.
-3. **Instructions**: cole o bloco de `instrucoes.md` (só o conteúdo dentro do cercado de código).
-4. **Knowledge**: anexe `contexto-evnttz.md`.
-5. Salve e compartilhe o link com quem reporta.
+Skills pedem conta Google **pessoal** (18+, Keep Activity on) — em rollout, pode não aparecer em
+conta de trabalho ainda. Dois caminhos:
+
+**Upload (recomendado — leva o contexto junto):**
+
+1. `gemini.google.com` → sidebar → **Settings → Skills** → **Upload**.
+2. Envie `evnttz-intake.zip` (ou a pasta `evnttz-intake/`).
+3. Revise e clique **Create**.
+
+**Manual (3 campos, sem contexto anexo):**
+
+1. **Create manually**.
+2. Nome: `evnttz-intake` (slug, minúsculas com hífen).
+3. Descrição: `Reportar bug ou pedir ajuste no EVNTTZ — entrevista breve e emite card pronto em markdown.`
+4. Instruções: cole o corpo do `SKILL.md` (tudo abaixo do frontmatter `---`).
+
+Para usar: em qualquer chat, digite `/` e escolha a skill — ou deixe o Gemini ativar sozinho pela
+descrição.
 
 ## Setup — ChatGPT (Project)
 
 1. **New Project** → nome: `EVNTTZ · Reports`.
-2. **Instructions**: cole o bloco de `instrucoes.md`.
-3. **Files**: anexe `contexto-evnttz.md`.
+2. **Instructions**: cole o corpo do `SKILL.md` (abaixo do frontmatter).
+3. **Files**: anexe `evnttz-intake/references/contexto-evnttz.md`.
 4. Toda conversa de report deve começar dentro do projeto.
 
 ## Como usar (quem reporta)
 
-1. Abra o Gem ou o Project.
+1. Abra o chat com a skill (`/` → `evnttz-intake`) ou dentro do Project.
 2. Descreva o problema ou o pedido do seu jeito, em qualquer idioma — pode ser uma frase solta
    ("o checkout trava no pix") ou um relato completo com link e print.
 3. A IA faz até 3 perguntas curtas por vez, só sobre o que você sabe: onde aconteceu, o que você
@@ -52,6 +66,19 @@ organiza e a triagem da TTZ classifica.
    produz — quando o conector estiver pronto, a migração é trocar "colar no board" por "colar na
    conversa do Claude App".
 
+## Manutenção
+
+Mudou `SKILL.md` ou `references/`? Regera o zip e commite os dois:
+
+```bash
+cd evnttz-intake && python3 -c "
+import zipfile
+with zipfile.ZipFile('../evnttz-intake.zip','w',zipfile.ZIP_DEFLATED) as z:
+    z.write('SKILL.md'); z.write('references/contexto-evnttz.md')"
+```
+
+No Gemini, arquivo de skill não edita no lugar: **More → Replace skill** com o zip novo.
+
 ## Limites conhecidos (por desenho)
 
 - **Sem dedup real** — a IA não vê o board; a checagem de duplicata é sugestão de palavras-chave
@@ -60,5 +87,4 @@ organiza e a triagem da TTZ classifica.
   na decisão da triagem.
 - **Regra em texto fura** — instrução de prompt não é portão. Por isso a IA é propositalmente
   proibida de decidir: tudo que exigiria acesso a dados reais fica com o humano.
-- **Deriva** — se as instruções mudarem, mudar nos dois lugares (Gem + Project). A fonte é este
-  repositório.
+- **Deriva** — a fonte é este repositório. No Gemini, edição de arquivos exige re-upload do pacote.
