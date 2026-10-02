@@ -11,12 +11,9 @@ cadastra no board é um humano da TTZ — a IA não registra, não classifica e 
 | `evnttz-intake/SKILL.md` | skill do Gemini: frontmatter (`name` slug + `description`) + instruções |
 | `evnttz-intake/references/contexto-evnttz.md` | vocabulário real do produto, carregado sob demanda |
 | `evnttz-intake.zip` | pacote pronto pra upload no Gemini (SKILL.md + references) |
-| `chatgpt-project/instrucoes.md` | campo Instructions do Project — prosa direta, sem frontmatter |
-| `casos-de-teste.md` | 6 prompts de teste com comportamento esperado |
-
-Os dois textos de instrução divergem de propósito: o `SKILL.md` fala a língua de skill do Gemini
-(frontmatter para ativação, referência a `references/`), e o do ChatGPT é prosa de projeto
-(aponta o arquivo anexo). Edite os dois juntos — ou aceite a deriva.
+| `chatgpt-project/instrucoes.md` | campo Instructions do Project — **gerado**, não editar |
+| `scripts/build.py` | gera `instrucoes.md` e o zip a partir do `SKILL.md` (fonte única) |
+| `casos-de-teste.md` | 10 prompts de teste + 2 cards de referência para comparar a saída |
 
 ## Setup — Gemini (skill)
 
@@ -34,7 +31,9 @@ conta de trabalho ainda. Dois caminhos:
 1. **Create manually**.
 2. Nome: `evnttz-intake` (slug, minúsculas com hífen).
 3. Descrição: `Reportar bug ou pedir ajuste no EVNTTZ — entrevista breve e emite card pronto em markdown.`
-4. Instruções: cole o corpo do `SKILL.md` (tudo abaixo do frontmatter `---`).
+4. Instruções: cole o corpo do `SKILL.md` (tudo abaixo do frontmatter `---`). A seção CONTEXTO
+   ANEXO é condicional ("se houver arquivo"), então funciona sem o anexo — mas a skill fica sem o
+   vocabulário.
 
 Para usar: em qualquer chat, digite `/` e escolha a skill — ou deixe o Gemini ativar sozinho pela
 descrição.
@@ -65,21 +64,22 @@ organiza e a triagem da TTZ classifica.
 1. Recebe o markdown do relator.
 2. Confere o `STATUS`: `INCOMPLETO` significa que algum item ficou "não informado" — decida se
    cadastra assim ou devolve ao relator.
-3. Lê o bloco **Para a triagem**: busca duplicata pelas palavras-chave sugeridas, define produto,
+3. Se o card cita evidência (print, anexo), **confira se o arquivo original veio junto** — a imagem
+   fica no chat da IA e não viaja com o texto. Peça ao relator se faltar.
+4. Lê o bloco **Para a triagem**: busca duplicata pelas palavras-chave sugeridas, define produto,
    severidade e sprint.
-4. Cola o corpo no card (Boardz/ClickUp). As seções são as mesmas que o `support_file` do conecttz
+5. Cola o corpo no card (Boardz/ClickUp). As seções são as mesmas que o `support_file` do conecttz
    produz — quando o conector estiver pronto, a migração é trocar "colar no board" por "colar na
    conversa do Claude App".
 
 ## Manutenção
 
-Mudou `SKILL.md` ou `references/`? Regera o zip e commite os dois:
+`evnttz-intake/SKILL.md` é a fonte única. `chatgpt-project/instrucoes.md` e `evnttz-intake.zip`
+são gerados — depois de editar o SKILL.md ou o `references/`:
 
 ```bash
-cd evnttz-intake && python3 -c "
-import zipfile
-with zipfile.ZipFile('../evnttz-intake.zip','w',zipfile.ZIP_DEFLATED) as z:
-    z.write('SKILL.md'); z.write('references/contexto-evnttz.md')"
+python3 scripts/build.py
+git add -A
 ```
 
 No Gemini, arquivo de skill não edita no lugar: **More → Replace skill** com o zip novo.
@@ -92,4 +92,7 @@ No Gemini, arquivo de skill não edita no lugar: **More → Replace skill** com 
   na decisão da triagem.
 - **Regra em texto fura** — instrução de prompt não é portão. Por isso a IA é propositalmente
   proibida de decidir: tudo que exigiria acesso a dados reais fica com o humano.
-- **Deriva** — a fonte é este repositório. No Gemini, edição de arquivos exige re-upload do pacote.
+- **Evidência não viaja** — print/anexo fica no chat da IA; o card carrega só a descrição. O humano
+  confere o anexo original na triagem.
+- **Deriva** — a fonte é o `SKILL.md` + `scripts/build.py`. No Gemini, edição de arquivos exige
+  re-upload do pacote.
