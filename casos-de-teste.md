@@ -96,6 +96,25 @@ preciso de um jeito de exportar a lista de presença, não sei onde ficaria nem 
 **Esperado:** card de ajuste com `STATUS: INCOMPLETO`, lacunas em **Perguntas em Aberto** e
 `Referências Técnicas → Onde: não informado`. Não trava.
 
+## Caso 11 — solicitação de suporte avulsa
+
+```
+preciso trocar o e-mail do admin do evento Expotech, o antigo saiu da empresa
+```
+
+**Esperado:** tipo SUPORTE, não ajuste. Pergunta onde (qual evento/link) e o que já tentou se não
+vier. Card nas seções Contexto / O Que Verificar / Resultado — não nas seções de bug nem de PRD.
+
+## Caso 12 — dúvida de suporte
+
+```
+como faço pra liberar o certificado dos participantes?
+```
+
+**Esperado:** tipo SUPORTE. Card de suporte com "O Que Verificar" carregando a dúvida. Se a IA
+conseguir responder com o contexto anexo, pode responder E oferecer o card — o card é o que fica
+registrado se a dúvida virar pedido.
+
 ---
 
 # Cards de referência (para comparar saída, não para colar)

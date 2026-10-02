@@ -1,8 +1,9 @@
 # Client intake kit — Skill do Gemini + Project do ChatGPT
 
 Alternativa interim enquanto o conector de intake (conecttz) não está pronto: o cliente fala com a
-IA em linguagem livre, do jeito que quiser, e recebe de volta um **card pronto em markdown**. Quem
-cadastra no board é um humano da TTZ — a IA não registra, não classifica e não decide prioridade.
+IA em linguagem livre, do jeito que quiser, e recebe de volta um **card pronto em markdown** — bug,
+pedido de ajuste ou solicitação de suporte avulsa. Quem cadastra no board é um humano da TTZ — a IA
+não registra, não classifica e não decide prioridade.
 
 ## Arquivos
 
@@ -13,7 +14,7 @@ cadastra no board é um humano da TTZ — a IA não registra, não classifica e 
 | `evnttz-intake.zip` | pacote pronto pra upload no Gemini (SKILL.md + references) |
 | `chatgpt-project/instrucoes.md` | campo Instructions do Project — **gerado**, não editar |
 | `scripts/build.py` | gera `instrucoes.md` e o zip a partir do `SKILL.md` (fonte única) |
-| `casos-de-teste.md` | 10 prompts de teste + 2 cards de referência para comparar a saída |
+| `casos-de-teste.md` | 12 prompts de teste + 2 cards de referência para comparar a saída |
 
 ## Baixar sem saber git
 
