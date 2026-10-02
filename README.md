@@ -8,10 +8,15 @@ cadastra no board é um humano da TTZ — a IA não registra, não classifica e 
 
 | arquivo | uso |
 |---|---|
-| `evnttz-intake/SKILL.md` | a skill: frontmatter (`name` slug + `description`) + instruções — fonte única |
-| `evnttz-intake/references/contexto-evnttz.md` | vocabulário real do produto, carregado pela skill quando precisa |
+| `evnttz-intake/SKILL.md` | skill do Gemini: frontmatter (`name` slug + `description`) + instruções |
+| `evnttz-intake/references/contexto-evnttz.md` | vocabulário real do produto, carregado sob demanda |
 | `evnttz-intake.zip` | pacote pronto pra upload no Gemini (SKILL.md + references) |
+| `chatgpt-project/instrucoes.md` | campo Instructions do Project — prosa direta, sem frontmatter |
 | `casos-de-teste.md` | 6 prompts de teste com comportamento esperado |
+
+Os dois textos de instrução divergem de propósito: o `SKILL.md` fala a língua de skill do Gemini
+(frontmatter para ativação, referência a `references/`), e o do ChatGPT é prosa de projeto
+(aponta o arquivo anexo). Edite os dois juntos — ou aceite a deriva.
 
 ## Setup — Gemini (skill)
 
@@ -37,7 +42,7 @@ descrição.
 ## Setup — ChatGPT (Project)
 
 1. **New Project** → nome: `EVNTTZ · Reports`.
-2. **Instructions**: cole o corpo do `SKILL.md` (abaixo do frontmatter).
+2. **Instructions**: cole `chatgpt-project/instrucoes.md` inteiro.
 3. **Files**: anexe `evnttz-intake/references/contexto-evnttz.md`.
 4. Toda conversa de report deve começar dentro do projeto.
 
