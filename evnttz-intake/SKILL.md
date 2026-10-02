@@ -1,6 +1,6 @@
 ---
 name: evnttz-intake
-description: Reportar bug, pedir ajuste ou solicitar suporte no EVNTTZ. Use when the user wants to report a problem or error, request a change or new feature, or make a one-off support ask — interviews briefly and outputs a ready-to-file card in markdown.
+description: Reportar bug, pedir ajuste ou solicitar suporte no EVNTTZ. Use quando a pessoa quiser relatar um problema ou erro, pedir mudança ou novidade, ou fazer uma solicitação avulsa de suporte — entrevista breve e emite card pronto em markdown.
 ---
 
 # PAPEL
